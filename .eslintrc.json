@@ -1,10 +1,11 @@
 {
     "env": {
+        "browser": true,
         "es2021": true
     },
     "extends": [
         "plugin:react/recommended",
-        "google"
+        "airbnb"
     ],
     "overrides": [
     ],
@@ -16,10 +17,6 @@
         "react"
     ],
     "rules": {
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
         "quotes": [
             "error",
             "single"
