@@ -1,10 +1,17 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/auth';
 import './login.scss';
 
 function Login() {
+  const { login } = useContext(AuthContext);
+
+  const handleLogin = () => {
+    login();
+  };
+
   return (
     <div className="login">
       <div className="card">
@@ -21,7 +28,7 @@ function Login() {
           <form action="">
             <input type="text" placeholder="Username" />
             <input type="password" placeholder="Password" />
-            <button type="submit">Login</button>
+            <button type="submit" onClick={handleLogin}>Login</button>
           </form>
         </div>
       </div>
