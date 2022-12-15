@@ -17,7 +17,7 @@ import Profile from './pages/profile/Profile';
 import Home from './pages/home/Home';
 
 function App() {
-  const currentUser = false;
+  const currentUser = true;
 
   function Layout() {
     return (
@@ -25,7 +25,9 @@ function App() {
         <Navbar />
         <div style={{ display: 'flex' }}>
           <LeftBar />
-          <Outlet />
+          <div style={{ flex: 6 }}>
+            <Outlet />
+          </div>
           <RightBar />
         </div>
       </div>
