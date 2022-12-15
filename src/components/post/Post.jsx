@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import './post.scss';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
@@ -9,8 +9,10 @@ import TextsmsOutlinedIcon from '@mui/icons-material/TextsmsOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Link } from 'react-router-dom';
+import Comments from '../comments/Comments';
 
 function Post({ post }) {
+  const [commentOpen, setCommentOpen] = useState(false);
   // DUMMY
   const liked = false;
   return (
@@ -38,7 +40,7 @@ function Post({ post }) {
             12 Likes
           </div>
           <div className="item">
-            <TextsmsOutlinedIcon />
+            <TextsmsOutlinedIcon onClick={() => setCommentOpen(!commentOpen)} />
             12 Comments
           </div>
           <div className="item">
@@ -46,6 +48,7 @@ function Post({ post }) {
             Share
           </div>
         </div>
+        {commentOpen && <Comments />}
       </div>
     </div>
   );
